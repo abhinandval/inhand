@@ -2,6 +2,7 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import csp from 'vite-plugin-csp';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -14,6 +15,23 @@ export default defineConfig(({ mode }) => {
         react({
           babel: {
             plugins: [['babel-plugin-react-compiler', { target: '19' }]],
+          },
+        }),
+        csp({
+          hashEnabled: {
+            'script-src': false,
+            'style-src': false,
+            'script-src-attr': false,
+            'style-src-attr': false,
+          },
+          policy: {
+            'default-src': ["self"],
+            'script-src': ["self", "unsafe-inline"],
+            'style-src': ["self", "unsafe-inline", "https://fonts.googleapis.com"],
+            'font-src': ["self", "https://fonts.gstatic.com"],
+            'img-src': ["self", "data:"],
+            'connect-src': ["self"],
+            'frame-ancestors': ["none"],
           },
         }),
         VitePWA({
