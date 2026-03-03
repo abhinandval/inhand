@@ -1,5 +1,9 @@
 # InHand - In-Hand Salary Calculator
 
+[![Tests](https://github.com/abhinandval/inhand/actions/workflows/tests.yml/badge.svg)](https://github.com/abhinandval/inhand/actions/workflows/tests.yml)
+[![Unit Tests](https://img.shields.io/badge/unit%20tests-12%20passed-brightgreen)](https://github.com/abhinandval/inhand)
+[![E2E Tests](https://img.shields.io/badge/e2e%20tests-5%20passed-brightgreen)](https://github.com/abhinandval/inhand)
+
 A modern, responsive salary calculator that helps you calculate your monthly in-hand salary with detailed tax breakdowns under the Indian Income Tax AY 2026-27 (FY 2025-26) regime.
 
 ## Features
@@ -44,7 +48,7 @@ npm install
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`
+The app will be available at `http://localhost:5174`
 
 ### Build
 
