@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "prepare": "husky",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "coi-serviceworker": "^0.1.7",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.3",
+    "@playwright/test": "^1.58.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^25.3.3",
@@ -27,6 +30,7 @@
     "babel-plugin-react-compiler": "^1.0.0",
     "husky": "^9.1.7",
     "jsdom": "^28.1.0",
+    "playwright": "^1.58.2",
     "pwa-asset-generator": "^8.1.2",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
