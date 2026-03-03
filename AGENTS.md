@@ -11,19 +11,8 @@ npm run dev         # Start development server (port 3000)
 npm run build       # Production build to dist/
 npm run preview     # Preview production build locally
 npm run prepare     # Install Husky git hooks
-```
-
-### Running a Single Test
-
-No test framework is currently configured. To add tests, consider:
-```bash
-npm install vitest @testing-library/react @testing-library/jest-dom
-```
-
-Then add to package.json:
-```json
-"test": "vitest",
-"test:run": "vitest run"
+npm run test        # Run tests in watch mode
+npm run test:run    # Run tests once
 ```
 
 ## Code Style Guidelines
@@ -141,6 +130,47 @@ const calculateSalary = useCallback(() => {
 git commit -m "feat: add salary breakdown calculation"
 git commit -m "fix: correct tax slab calculation"
 ```
+
+### Branching Strategy
+
+- **Always create a new branch** for any feature, fix, refactor, or change
+- **Switch to the new branch** before starting any work
+- Branch naming convention:
+  - `feature/<description>` - New features (e.g., `feature/add-dark-mode`)
+  - `fix/<description>` - Bug fixes (e.g., `fix/tax-calculation-error`)
+  - `refactor/<description>` - Code refactoring (e.g., `refactor/salary-utils`)
+  - `chore/<description>` - Maintenance tasks (e.g., `chore/update-deps`)
+
+```bash
+# Example workflow
+git checkout -b feature/add-new-tax-slab
+# ... make changes ...
+git commit -m "feat: add new tax slab"
+git checkout main
+git merge feature/add-new-tax-slab
+```
+
+### Test-Driven Development (TDD)
+
+Follow the TDD cycle for all new features and changes:
+
+1. **Write a failing test first** - Create a test that describes the expected behavior
+2. **Run the test** - Verify it fails (red)
+3. **Implement the code** - Write the minimum code to make the test pass
+4. **Run the test** - Verify it passes (green)
+5. **Refactor** - Improve code while keeping tests green
+6. **Run tests before committing** - Ensure all tests pass
+
+```bash
+# Run tests
+npm run test:run
+
+# Run tests in watch mode during development
+npm run test
+```
+
+- Place test files adjacent to their source files (e.g., `salaryUtils.ts` → `salaryUtils.test.ts`)
+- Use descriptive test names that explain the expected behavior
 
 ## Project Structure
 
